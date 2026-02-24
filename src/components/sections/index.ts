@@ -1,0 +1,8 @@
+export { Hero } from './Hero'
+export { PainPoints } from './PainPoints'
+export { Solution } from './Solution'
+export { Services } from './Services'
+export { Results } from './Results'
+export { Testimonials } from './Testimonials'
+export { FAQ } from './FAQ'
+export { FinalCTA } from './FinalCTA'
