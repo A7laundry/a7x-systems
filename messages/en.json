@@ -461,6 +461,7 @@
 
   "vhHero": {
     "badge": "Vacation Home Marketing",
+    "location": "Florida Focus",
     "headline1": "Stop Renting Your Business",
     "headline2": "to Airbnb.",
     "headline3": "Build Your Own Booking Engine.",
@@ -523,6 +524,31 @@
     "step4Number": "04",
     "step4Title": "Scale & Expand",
     "step4Desc": "As direct bookings grow, add paid traffic, retargeting campaigns, and seasonal promotions. Replicate across multiple properties when ready."
+  },
+
+  "vhShowcase": {
+    "badge": "Themed Experiences",
+    "title": "We Market Every Type of Property",
+    "subtitle": "From beachfront condos to designer retreats — we build the marketing infrastructure that makes YOUR property the destination, not just another listing.",
+    "beachfrontTitle": "Beachfront Bliss",
+    "beachfrontDesc": "Ocean views, sandy toes, and sunrise balconies. We position your coastal property as the go-to escape for beach lovers seeking direct-booked paradise.",
+    "beachfrontMarketing": "SEO: 'beachfront rental [city]' + Google Maps",
+    "tropicalTitle": "Tropical Paradise",
+    "tropicalDesc": "Lush gardens, tiki bars, and pool vibes. We craft a brand that transports guests to their tropical dream before they even arrive.",
+    "tropicalMarketing": "Instagram content + seasonal retargeting",
+    "modernTitle": "Modern Luxury",
+    "modernDesc": "Clean lines, smart home tech, and infinity pools. We attract the premium traveler who searches for quality over quantity.",
+    "modernMarketing": "Google Ads targeting high-intent luxury travelers",
+    "familyTitle": "Family Adventure",
+    "familyDesc": "Game rooms, bunk beds, and backyard fun. We connect your property with families actively planning their next vacation.",
+    "familyMarketing": "Facebook Ads targeting family travel planners",
+    "romanticTitle": "Romantic Escape",
+    "romanticDesc": "Sunset terraces, hot tubs, and intimate dining. We build a brand that couples choose for anniversaries and honeymoons.",
+    "romanticMarketing": "Pinterest + anniversary/honeymoon retargeting",
+    "designerTitle": "Designer Retreat",
+    "designerDesc": "Curated interiors, statement pieces, and magazine-worthy spaces. We position your property as a design destination for the aesthetically-driven traveler.",
+    "designerMarketing": "Influencer-ready content + design community SEO",
+    "bottomNote": "Every property type gets a unique marketing strategy. Your home isn't generic — your marketing shouldn't be either."
   },
 
   "vhDiff": {

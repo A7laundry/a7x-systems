@@ -4,6 +4,7 @@ import { VHPainPoints } from '@/components/sections/vacation-homes/VHPainPoints'
 import { VHSolution } from '@/components/sections/vacation-homes/VHSolution'
 import { VHDifferentiation } from '@/components/sections/vacation-homes/VHDifferentiation'
 import { VHPricing } from '@/components/sections/vacation-homes/VHPricing'
+import { VHShowcase } from '@/components/sections/vacation-homes/VHShowcase'
 import { VHUpsells } from '@/components/sections/vacation-homes/VHUpsells'
 import { VHResults } from '@/components/sections/vacation-homes/VHResults'
 import { VHFAQ } from '@/components/sections/vacation-homes/VHFAQ'
@@ -29,6 +30,7 @@ export default async function VacationHomesPage({
       <VHHero />
       <VHPainPoints />
       <VHSolution />
+      <VHShowcase />
       <VHDifferentiation />
       <VHPricing />
       <VHUpsells />
