@@ -29,6 +29,7 @@ export function Footer() {
               <li><Link href="/services" className="transition-colors hover:text-text-secondary">{t('documentProcessing')}</Link></li>
               <li><Link href="/services" className="transition-colors hover:text-text-secondary">{t('aiAgents')}</Link></li>
               <li><Link href="/services" className="transition-colors hover:text-text-secondary">{t('dataIntegration')}</Link></li>
+              <li><Link href="/services" className="transition-colors hover:text-text-secondary">{t('aiMarketing')}</Link></li>
             </ul>
           </div>
 

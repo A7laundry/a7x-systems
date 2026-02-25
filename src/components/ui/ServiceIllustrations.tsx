@@ -105,6 +105,33 @@ export function AIAgentsIllustration() {
   )
 }
 
+export function AIMarketingIllustration() {
+  return (
+    <svg viewBox="0 0 120 120" fill="none" className={svgClass}>
+      {/* Megaphone body */}
+      <path d="M25 50 L55 35 L55 75 L25 60 Z" stroke="#60a5fa" strokeWidth="2" fill="#60a5fa" fillOpacity="0.08" />
+      <rect x="18" y="48" width="10" height="14" rx="2" stroke="#3b82f6" strokeWidth="1.5" fill="#3b82f6" fillOpacity="0.1" />
+      {/* Megaphone bell */}
+      <path d="M55 32 Q75 25 75 55 Q75 85 55 78" stroke="#60a5fa" strokeWidth="2" fill="#60a5fa" fillOpacity="0.05" />
+      {/* Sound waves */}
+      <path d="M80 45 Q88 55 80 65" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+      <path d="M86 38 Q96 55 86 72" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" fill="none" strokeOpacity="0.6" />
+      <path d="M92 32 Q104 55 92 78" stroke="#22d3ee" strokeWidth="1.5" strokeLinecap="round" fill="none" strokeOpacity="0.3" />
+      {/* Niche icons radiating - house */}
+      <rect x="88" y="20" width="12" height="10" rx="1" stroke="#3b82f6" strokeWidth="1" fill="#3b82f6" fillOpacity="0.15" />
+      <path d="M87 22 L94 16 L101 22" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" fill="none" />
+      {/* Star */}
+      <path d="M98 80 L100 86 L106 86 L101 90 L103 96 L98 92 L93 96 L95 90 L90 86 L96 86 Z" fill="#22d3ee" fillOpacity="0.3" stroke="#22d3ee" strokeWidth="0.8" />
+      {/* AI sparkle */}
+      <circle cx="42" cy="85" r="8" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="1" />
+      <text x="42" y="88" textAnchor="middle" fill="#3b82f6" fontSize="7" fontWeight="bold">AI</text>
+      {/* Connection lines from megaphone to icons */}
+      <line x1="72" y1="38" x2="88" y2="25" stroke="#3b82f6" strokeWidth="0.8" strokeOpacity="0.3" strokeDasharray="2 2" />
+      <line x1="72" y1="72" x2="90" y2="86" stroke="#22d3ee" strokeWidth="0.8" strokeOpacity="0.3" strokeDasharray="2 2" />
+    </svg>
+  )
+}
+
 export function DataIntegrationIllustration() {
   return (
     <svg viewBox="0 0 120 120" fill="none" className={svgClass}>

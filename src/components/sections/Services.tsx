@@ -14,6 +14,7 @@ import {
   DocumentProcessingIllustration,
   AIAgentsIllustration,
   DataIntegrationIllustration,
+  AIMarketingIllustration,
 } from '@/components/ui/ServiceIllustrations'
 
 const serviceIllustrations: Record<string, React.ReactNode> = {
@@ -22,6 +23,7 @@ const serviceIllustrations: Record<string, React.ReactNode> = {
   file: <DocumentProcessingIllustration />,
   bot: <AIAgentsIllustration />,
   chart: <DataIntegrationIllustration />,
+  megaphone: <AIMarketingIllustration />,
 }
 
 export function Services() {
@@ -33,6 +35,7 @@ export function Services() {
     { title: t('service3Title'), description: t('service3Description'), icon: t('service3Icon') },
     { title: t('service4Title'), description: t('service4Description'), icon: t('service4Icon') },
     { title: t('service5Title'), description: t('service5Description'), icon: t('service5Icon') },
+    { title: t('service6Title'), description: t('service6Description'), icon: t('service6Icon') },
   ]
 
   return (
