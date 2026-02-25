@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A7X Systems — Blueprint do Projeto</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface-1: #12121a;
+      --surface-2: #1a1a26;
+      --surface-3: #222233;
+      --border: #2a2a3d;
+      --border-accent: #6366f1;
+      --text: #e2e2ef;
+      --text-muted: #8888a4;
+      --text-dim: #5a5a72;
+      --accent: #818cf8;
+      --accent-glow: rgba(129, 140, 248, 0.15);
+      --green: #34d399;
+      --green-dim: rgba(52, 211, 153, 0.12);
+      --amber: #fbbf24;
+      --amber-dim: rgba(251, 191, 36, 0.12);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.12);
+      --cyan: #22d3ee;
+      --cyan-dim: rgba(34, 211, 238, 0.1);
+      --pink: #f472b6;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(129, 140, 248, 0.2);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .header-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .header p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    .header-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .num {
+      font-size: 13px;
+      color: var(--accent);
+      background: var(--accent-glow);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    /* Page Map */
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .page-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .page-card:hover { border-color: var(--border-accent); }
+    .page-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .page-card-route {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+    .page-card-status {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .status-ok { background: var(--green-dim); color: var(--green); }
+    .status-warn { background: var(--amber-dim); color: var(--amber); }
+    .status-error { background: var(--red-dim); color: var(--red); }
+    .page-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .page-card-sections {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .page-card-sections li {
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .page-card-sections li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--text-dim);
+      flex-shrink: 0;
+    }
+    .page-card-note {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 3px solid var(--border-accent);
+    }
+
+    /* Flow Diagram */
+    .flow-container {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      overflow-x: auto;
+    }
+    .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .flow-node {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      min-width: 140px;
+      position: relative;
+    }
+    .flow-node.primary {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .flow-node.conversion {
+      border-color: var(--green);
+      background: var(--green-dim);
+      color: var(--green);
+    }
+    .flow-node.warning {
+      border-color: var(--amber);
+      background: var(--amber-dim);
+      color: var(--amber);
+    }
+    .flow-node.danger {
+      border-color: var(--red);
+      background: var(--red-dim);
+      color: var(--red);
+    }
+    .flow-arrow {
+      color: var(--text-dim);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .flow-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: -8px;
+      margin-bottom: 12px;
+    }
+
+    /* Popup Table */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead { background: var(--surface-2); }
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    .mono {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    /* Bottleneck Cards */
+    .bottleneck-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 16px;
+    }
+    .bottleneck-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .bottleneck-card.high { border-left: 4px solid var(--red); }
+    .bottleneck-card.medium { border-left: 4px solid var(--amber); }
+    .bottleneck-card.low { border-left: 4px solid var(--cyan); }
+    .bottleneck-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .bottleneck-header h4 { font-size: 14px; font-weight: 600; }
+    .priority-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .priority-high { background: var(--red-dim); color: var(--red); }
+    .priority-medium { background: var(--amber-dim); color: var(--amber); }
+    .priority-low { background: var(--cyan-dim); color: var(--cyan); }
+    .bottleneck-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .bottleneck-card .impact {
+      font-size: 12px;
+      color: var(--text-dim);
+      padding: 8px 12px;
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+    }
+    .bottleneck-card .impact strong {
+      color: var(--text);
+    }
+
+    /* Coverage Bars */
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .coverage-item {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+    .coverage-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .coverage-pct { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+    .coverage-bar {
+      height: 6px;
+      background: var(--surface-3);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .coverage-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 1s ease;
+    }
+    .fill-green { background: linear-gradient(90deg, #34d399, #10b981); }
+    .fill-amber { background: linear-gradient(90deg, #fbbf24, #f59e0b); }
+    .fill-red { background: linear-gradient(90deg, #f87171, #ef4444); }
+    .fill-accent { background: linear-gradient(90deg, #818cf8, #6366f1); }
+
+    /* CTA Map */
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .cta-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .cta-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .cta-arrow {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-arrow .dest {
+      color: var(--accent);
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    /* Tech Stack */
+    .stack-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .stack-pill {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* i18n */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .lang-card {
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+    }
+    .lang-flag { font-size: 28px; margin-bottom: 6px; }
+    .lang-name { font-size: 14px; font-weight: 600; }
+    .lang-ns { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    /* Action Items */
+    .action-list { list-style: none; }
+    .action-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--surface-1);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .action-num {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 14px;
+      min-width: 24px;
+      font-variant-numeric: tabular-nums;
+    }
+    .action-text { flex: 1; }
+    .action-text strong { color: var(--text); }
+    .action-text span { color: var(--text-muted); }
+
+    /* Footer */
+    .report-footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 26px; }
+      .page-grid, .bottleneck-grid { grid-template-columns: 1fr; }
+      .lang-grid { grid-template-columns: 1fr; }
+      .flow-row { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); }
+      .header-meta { flex-direction: column; gap: 8px; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-badge">Documento Interno</div>
+    <h1>A7X Systems — Blueprint</h1>
+    <p>Mapa completo do projeto: p&aacute;ginas, conex&otilde;es, gargalos e oportunidades.</p>
+    <div class="header-meta">
+      <span>Gerado em: 24 Fev 2026</span>
+      <span>|</span>
+      <span>9 p&aacute;ginas &bull; 3 idiomas &bull; 4 popups</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 01. Tech Stack -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">01</span> Tech Stack</h2>
+      <p class="section-subtitle">Tecnologias e infraestrutura do projeto.</p>
+      <div class="stack-pills">
+        <span class="stack-pill">Next.js 14+ (App Router)</span>
+        <span class="stack-pill">TypeScript</span>
+        <span class="stack-pill">Tailwind CSS</span>
+        <span class="stack-pill">Framer Motion</span>
+        <span class="stack-pill">next-intl (i18n)</span>
+        <span class="stack-pill">Vercel (Deploy)</span>
+        <span class="stack-pill">EN / PT / ES</span>
+      </div>
+    </div>
+
+    <!-- 02. Mapa de Paginas -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">02</span> Mapa de P&aacute;ginas</h2>
+      <p class="section-subtitle">Todas as rotas do site, seus componentes e status atual.</p>
+
+      <div class="page-grid">
+
+        <!-- Home -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/</span>
+            <span class="page-card-status status-ok">Completa</span>
+          </div>
+          <h3>Home</h3>
+          <ul class="page-card-sections">
+            <li>Hero (rotating words + stats)</li>
+            <li>PainPoints (6 dores do cliente)</li>
+            <li>Solution (framework 3 passos)</li>
+            <li>Services (6 cards, card 6 abre modal)</li>
+            <li>Results (4 m&eacute;tricas animadas)</li>
+            <li>Testimonials (3 depoimentos)</li>
+            <li>FAQ (6 perguntas)</li>
+            <li>FinalCTA</li>
+          </ul>
+          <div class="page-card-note">JSON-LD: Organization, Service, FAQ, HowTo</div>
+        </div>
+
+        <!-- Services -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/services</span>
+            <span class="page-card-status status-ok">Completa</span>
+          </div>
+          <h3>Servi&ccedil;os</h3>
+          <ul class="page-card-sections">
+            <li>6 servi&ccedil;os detalhados (5 entregas cada)</li>
+            <li>Service 6 linka para /vacation-homes</li>
+            <li>CTA final &rarr; /contact</li>
+          </ul>
+        </div>
+
+        <!-- Vacation Homes -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/vacation-homes</span>
+            <span class="page-card-status status-ok">Completa</span>
+          </div>
+          <h3>Vacation Homes (Landing)</h3>
+          <ul class="page-card-sections">
+            <li>VHHero (mans&atilde;o ao entardecer)</li>
+            <li>VHPainPoints (6 dores)</li>
+            <li>VHSolution (6 solu&ccedil;&otilde;es + 4 steps)</li>
+            <li>VHShowcase (6 temas de im&oacute;vel)</li>
+            <li>VHDifferentiation (vs ag&ecirc;ncia/DIY)</li>
+            <li>VHPricing (4 planos: $297-$1,499)</li>
+            <li>VHUpsells (3 add-ons)</li>
+            <li>VHResults (2 case studies)</li>
+            <li>VHFAQ (8 perguntas)</li>
+            <li>VHFinalCTA (funil visual)</li>
+            <li>VHPopup (cupom FEB10BOOST)</li>
+          </ul>
+          <div class="page-card-note">Landing page mais completa do site. 11 se&ccedil;&otilde;es + popup.</div>
+        </div>
+
+        <!-- Contact -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/contact</span>
+            <span class="page-card-status status-warn">Sem backend</span>
+          </div>
+          <h3>Contato</h3>
+          <ul class="page-card-sections">
+            <li>Assessment Wizard (7 steps)</li>
+            <li>Lead Capture Form</li>
+            <li>Results com score</li>
+            <li>4 info cards</li>
+            <li>Calendly (placeholder)</li>
+          </ul>
+          <div class="page-card-note">Formul&aacute;rios simulam envio (setTimeout). Sem API route real.</div>
+        </div>
+
+        <!-- About -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/about</span>
+            <span class="page-card-status status-ok">Completa</span>
+          </div>
+          <h3>Sobre</h3>
+          <ul class="page-card-sections">
+            <li>Company Story (3 par&aacute;grafos)</li>
+            <li>Mission &amp; Vision</li>
+            <li>Values (4 cards)</li>
+            <li>Team description</li>
+          </ul>
+        </div>
+
+        <!-- Blog -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/blog</span>
+            <span class="page-card-status status-error">Vazio</span>
+          </div>
+          <h3>Blog</h3>
+          <ul class="page-card-sections">
+            <li>Listing page (grid)</li>
+            <li>/blog/[slug] (MDX rendering)</li>
+          </ul>
+          <div class="page-card-note">Zero posts publicados. Visitante v&ecirc; &ldquo;coming soon&rdquo;.</div>
+        </div>
+
+        <!-- Careers -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/careers</span>
+            <span class="page-card-status status-ok">Completa</span>
+          </div>
+          <h3>Carreiras</h3>
+          <ul class="page-card-sections">
+            <li>Why A7X (4 values)</li>
+            <li>Open Positions (nenhuma)</li>
+            <li>CTA &rarr; mailto:careers@</li>
+          </ul>
+        </div>
+
+        <!-- ROI Calculator -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/tools/roi-calculator</span>
+            <span class="page-card-status status-warn">&Oacute;rf&atilde;o</span>
+          </div>
+          <h3>Calculadora de ROI</h3>
+          <ul class="page-card-sections">
+            <li>Calculator interativo</li>
+            <li>Inputs: funcion&aacute;rios, sal&aacute;rio, % manual</li>
+            <li>Output: savings, hours, ROI</li>
+          </ul>
+          <div class="page-card-note">NENHUM link no site aponta para esta p&aacute;gina. Completamente &oacute;rf&atilde;.</div>
+        </div>
+
+        <!-- Legal -->
+        <div class="page-card">
+          <div class="page-card-header">
+            <span class="page-card-route">/privacy, /terms, /cookies</span>
+            <span class="page-card-status status-error">Inexistente</span>
+          </div>
+          <h3>P&aacute;ginas Legais</h3>
+          <ul class="page-card-sections">
+            <li>Listadas no Footer</li>
+            <li>Sem href (n&atilde;o clic&aacute;vel)</li>
+            <li>Sem p&aacute;ginas criadas</li>
+          </ul>
+          <div class="page-card-note">Obrigat&oacute;rio para compliance (LGPD, GDPR). N&atilde;o existe.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 03. Fluxo de Conversao -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">03</span> Fluxo de Convers&atilde;o</h2>
+      <p class="section-subtitle">Jornada principal do visitante at&eacute; a convers&atilde;o.</p>
+
+      <div class="flow-container">
+        <div class="flow-row">
+          <div class="flow-node primary">Visitante chega</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">Home (/)</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">Explora Services</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node conversion">Contact (Assessment)</div>
+        </div>
+        <div class="flow-label">Funil principal: Home &rarr; Services &rarr; Contact</div>
+
+        <div class="flow-row">
+          <div class="flow-node">Home &rarr; Service 6</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">AI Marketing Modal</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">/vacation-homes</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node conversion">#audit CTA</div>
+        </div>
+        <div class="flow-label">Funil VH: Modal &rarr; Landing page &rarr; Audit request</div>
+
+        <div class="flow-row">
+          <div class="flow-node warning">Consultation Popup (60s)</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node danger">Form sem backend</div>
+        </div>
+        <div class="flow-label">Popup aparece em todas as p&aacute;ginas, mas dados n&atilde;o s&atilde;o salvos</div>
+
+        <div class="flow-row">
+          <div class="flow-node">WhatsApp Button</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node conversion">wa.me/14077188393</div>
+        </div>
+        <div class="flow-label">Sempre vis&iacute;vel. &Uacute;nico canal funcional de convers&atilde;o real.</div>
+      </div>
+    </div>
+
+    <!-- 04. Popups & Modais -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">04</span> Popups &amp; Modais</h2>
+      <p class="section-subtitle">Elementos interativos sobrepostos ao conte&uacute;do principal.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Componente</th>
+              <th>Trigger</th>
+              <th>Onde Aparece</th>
+              <th>Destino</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="mono">ConsultationPopup</span></td>
+              <td>60s de sess&atilde;o</td>
+              <td>Todas as p&aacute;ginas</td>
+              <td>Formul&aacute;rio inline</td>
+              <td><span class="page-card-status status-warn">Sem backend</span></td>
+            </tr>
+            <tr>
+              <td><span class="mono">AIMarketingModal</span></td>
+              <td>Click card service6</td>
+              <td>Home (Services)</td>
+              <td>/vacation-homes + /contact</td>
+              <td><span class="page-card-status status-ok">OK</span></td>
+            </tr>
+            <tr>
+              <td><span class="mono">VHPopup</span></td>
+              <td>60s na VH page</td>
+              <td>/vacation-homes</td>
+              <td>#audit (cupom FEB10BOOST)</td>
+              <td><span class="page-card-status status-warn">Cupom visual</span></td>
+            </tr>
+            <tr>
+              <td><span class="mono">WhatsAppButton</span></td>
+              <td>2s delay</td>
+              <td>Todas as p&aacute;ginas</td>
+              <td>wa.me/14077188393</td>
+              <td><span class="page-card-status status-ok">Funcional</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 05. Mapa de CTAs -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">05</span> Mapa de CTAs</h2>
+      <p class="section-subtitle">Todos os call-to-actions e seus destinos.</p>
+
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h4>Hero &ldquo;Get Started&rdquo;</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/contact</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>Hero &ldquo;See How It Works&rdquo;</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">#solution (scroll)</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>Services &ldquo;View All&rdquo;</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/services</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>FinalCTA</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/contact</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>AI Modal &ldquo;Fale Conosco&rdquo;</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/contact</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>AI Modal &ldquo;Vacation Homes&rdquo;</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/vacation-homes</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>VH Pricing (todos os planos)</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">#audit</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>Services page Service 6</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">/vacation-homes</span></div>
+        </div>
+        <div class="cta-card">
+          <h4>Careers CTA</h4>
+          <div class="cta-arrow">&rarr; <span class="dest">mailto:careers@</span></div>
+        </div>
+        <div class="cta-card" style="border-color: var(--red); background: var(--red-dim);">
+          <h4 style="color: var(--red);">ROI Calculator</h4>
+          <div class="cta-arrow" style="color: var(--red);">NENHUM LINK aponta aqui</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06. Internacionalizacao -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">06</span> Internacionaliza&ccedil;&atilde;o</h2>
+      <p class="section-subtitle">Cobertura de tradu&ccedil;&atilde;o por idioma.</p>
+
+      <div class="lang-grid">
+        <div class="lang-card">
+          <div class="lang-flag">&#127482;&#127480;</div>
+          <div class="lang-name">English</div>
+          <div class="lang-ns">26 namespaces &bull; Completo</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">&#127463;&#127479;</div>
+          <div class="lang-name">Portugu&ecirc;s</div>
+          <div class="lang-ns">26 namespaces &bull; Completo</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-flag">&#127466;&#127480;</div>
+          <div class="lang-name">Espa&ntilde;ol</div>
+          <div class="lang-ns">26 namespaces &bull; Completo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07. Gargalos -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">07</span> Gargalos Identificados</h2>
+      <p class="section-subtitle">Problemas que impedem o site de funcionar como funil de convers&atilde;o completo.</p>
+
+      <div class="bottleneck-grid">
+
+        <div class="bottleneck-card high">
+          <div class="bottleneck-header">
+            <h4>Formul&aacute;rios sem backend</h4>
+            <span class="priority-tag priority-high">Alta</span>
+          </div>
+          <p>Assessment Wizard, Consultation Popup e Contact Form simulam envio com <code>setTimeout</code>. Nenhuma API route existe. Dados de leads s&atilde;o perdidos.</p>
+          <div class="impact"><strong>Impacto:</strong> Zero leads capturados. Todo o funil &eacute; visual mas n&atilde;o funcional.</div>
+        </div>
+
+        <div class="bottleneck-card high">
+          <div class="bottleneck-header">
+            <h4>ROI Calculator &oacute;rf&atilde;o</h4>
+            <span class="priority-tag priority-high">Alta</span>
+          </div>
+          <p>A p&aacute;gina <code>/tools/roi-calculator</code> existe com calculadora funcional mas nenhum link no site aponta para ela. Navbar, footer, CTAs &mdash; zero refer&ecirc;ncias.</p>
+          <div class="impact"><strong>Fix:</strong> Adicionar link no navbar, hero, FinalCTA e footer.</div>
+        </div>
+
+        <div class="bottleneck-card high">
+          <div class="bottleneck-header">
+            <h4>Sem tracking de convers&atilde;o</h4>
+            <span class="priority-tag priority-high">Alta</span>
+          </div>
+          <p>Nenhum Meta Pixel ou Google Tag implementado no c&oacute;digo. Ironia: oferecemos isso como servi&ccedil;o VH mas n&atilde;o usamos no pr&oacute;prio site.</p>
+          <div class="impact"><strong>Fix:</strong> Implementar no <code>layout.tsx</code> raiz.</div>
+        </div>
+
+        <div class="bottleneck-card high">
+          <div class="bottleneck-header">
+            <h4>Calendly n&atilde;o integrado</h4>
+            <span class="priority-tag priority-high">Alta</span>
+          </div>
+          <p>P&aacute;gina de contato menciona agendamento via Calendly mas &eacute; apenas placeholder. Nenhum widget real integrado.</p>
+          <div class="impact"><strong>Fix:</strong> Integrar Calendly embed ou usar cal.com.</div>
+        </div>
+
+        <div class="bottleneck-card medium">
+          <div class="bottleneck-header">
+            <h4>Blog vazio</h4>
+            <span class="priority-tag priority-medium">M&eacute;dia</span>
+          </div>
+          <p>Estrutura de blog existe (listing + MDX) mas zero posts publicados. Visitante chega via footer e v&ecirc; &ldquo;coming soon&rdquo;.</p>
+          <div class="impact"><strong>Impacto:</strong> Zero conte&uacute;do index&aacute;vel para long-tail SEO. Perda de autoridade org&acirc;nica.</div>
+        </div>
+
+        <div class="bottleneck-card medium">
+          <div class="bottleneck-header">
+            <h4>P&aacute;ginas legais inexistentes</h4>
+            <span class="priority-tag priority-medium">M&eacute;dia</span>
+          </div>
+          <p>Footer lista Privacy Policy, Terms of Service e Cookie Policy mas s&atilde;o textos est&aacute;ticos sem link. P&aacute;ginas n&atilde;o existem.</p>
+          <div class="impact"><strong>Impacto:</strong> N&atilde;o-compliance com LGPD/GDPR. Risco legal para opera&ccedil;&atilde;o internacional.</div>
+        </div>
+
+        <div class="bottleneck-card medium">
+          <div class="bottleneck-header">
+            <h4>Pricing sem fluxo diferenciado</h4>
+            <span class="priority-tag priority-medium">M&eacute;dia</span>
+          </div>
+          <p>Os 4 planos VH (Starter/Growth/Premium/Master) apontam todos para o mesmo <code>#audit</code>. N&atilde;o h&aacute; par&acirc;metro de plano no formul&aacute;rio.</p>
+          <div class="impact"><strong>Fix:</strong> Passar query param <code>?plan=growth</code> e pr&eacute;-selecionar no form.</div>
+        </div>
+
+        <div class="bottleneck-card medium">
+          <div class="bottleneck-header">
+            <h4>Footer links de servi&ccedil;o gen&eacute;ricos</h4>
+            <span class="priority-tag priority-medium">M&eacute;dia</span>
+          </div>
+          <p>Os 6 servi&ccedil;os no footer apontam todos para <code>/services</code> geral. Sem anchors para cada servi&ccedil;o espec&iacute;fico.</p>
+          <div class="impact"><strong>Fix:</strong> Adicionar IDs por servi&ccedil;o na p&aacute;gina e linkar com anchors.</div>
+        </div>
+
+        <div class="bottleneck-card low">
+          <div class="bottleneck-header">
+            <h4>Apenas 1 nicho no modal</h4>
+            <span class="priority-tag priority-low">Baixa</span>
+          </div>
+          <p>AI Marketing Modal mostra &ldquo;Expertise de Nicho&rdquo; com apenas Vacation Homes. Se h&aacute; planos de expandir (restaurantes, cl&iacute;nicas), falta estrutura.</p>
+          <div class="impact"><strong>Oportunidade:</strong> Preparar para m&uacute;ltiplos nichos conforme o neg&oacute;cio escala.</div>
+        </div>
+
+        <div class="bottleneck-card low">
+          <div class="bottleneck-header">
+            <h4>404 page gen&eacute;rica</h4>
+            <span class="priority-tag priority-low">Baixa</span>
+          </div>
+          <p>Usa <code>_not-found</code> padr&atilde;o do Next.js. Sem branding, sem CTAs &uacute;teis.</p>
+          <div class="impact"><strong>Fix:</strong> Criar 404 on-brand com links para Home e Contact.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 08. Cobertura Geral -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">08</span> Cobertura Geral</h2>
+      <p class="section-subtitle">Vis&atilde;o consolidada da maturidade de cada &aacute;rea.</p>
+
+      <div class="coverage-grid">
+        <div class="coverage-item">
+          <div class="coverage-label"><span>P&aacute;ginas</span><span class="coverage-pct">82%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-green" style="width: 82%"></div></div>
+        </div>
+        <div class="coverage-item">
+          <div class="coverage-label"><span>CTAs &amp; Links</span><span class="coverage-pct">78%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-green" style="width: 78%"></div></div>
+        </div>
+        <div class="coverage-item">
+          <div class="coverage-label"><span>Tradu&ccedil;&otilde;es (i18n)</span><span class="coverage-pct">100%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-accent" style="width: 100%"></div></div>
+        </div>
+        <div class="coverage-item">
+          <div class="coverage-label"><span>SEO (JSON-LD, meta)</span><span class="coverage-pct">70%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-amber" style="width: 70%"></div></div>
+        </div>
+        <div class="coverage-item">
+          <div class="coverage-label"><span>Formul&aacute;rios (backend)</span><span class="coverage-pct">15%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-red" style="width: 15%"></div></div>
+        </div>
+        <div class="coverage-item">
+          <div class="coverage-label"><span>Tracking (Pixel/GTM)</span><span class="coverage-pct">0%</span></div>
+          <div class="coverage-bar"><div class="coverage-fill fill-red" style="width: 0%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 09. Plano de Acao -->
+    <div class="section">
+      <h2 class="section-title"><span class="num">09</span> Plano de A&ccedil;&atilde;o Sugerido</h2>
+      <p class="section-subtitle">Itens ordenados por impacto na convers&atilde;o.</p>
+
+      <ol class="action-list">
+        <li class="action-item">
+          <span class="action-num">1</span>
+          <div class="action-text">
+            <strong>Integrar formul&aacute;rios com backend real</strong><br>
+            <span>API routes + Supabase/Resend para capturar leads do Assessment, Consultation Popup e Contact.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">2</span>
+          <div class="action-text">
+            <strong>Implementar Meta Pixel + Google Tag</strong><br>
+            <span>Adicionar no layout raiz. Eventos de convers&atilde;o nos formul&aacute;rios e CTAs.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">3</span>
+          <div class="action-text">
+            <strong>Linkar ROI Calculator em todo o site</strong><br>
+            <span>Navbar, hero, FinalCTA, footer, assessment results. Ferramenta pronta mas invis&iacute;vel.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">4</span>
+          <div class="action-text">
+            <strong>Integrar Calendly real</strong><br>
+            <span>Widget embed na p&aacute;gina de contato. Alternativa: cal.com para maior controle.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">5</span>
+          <div class="action-text">
+            <strong>Criar 3-5 posts de blog iniciais</strong><br>
+            <span>Long-tail SEO: &ldquo;como automatizar processos com IA&rdquo;, &ldquo;ROI de automa&ccedil;&atilde;o&rdquo;, etc.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">6</span>
+          <div class="action-text">
+            <strong>Criar p&aacute;ginas legais</strong><br>
+            <span>Privacy Policy, Terms of Service, Cookie Policy. LGPD/GDPR compliance.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">7</span>
+          <div class="action-text">
+            <strong>Pricing com plano pr&eacute;-selecionado</strong><br>
+            <span>Passar <code>?plan=growth</code> no CTA e mostrar no formul&aacute;rio qual plano foi escolhido.</span>
+          </div>
+        </li>
+        <li class="action-item">
+          <span class="action-num">8</span>
+          <div class="action-text">
+            <strong>Anchors por servi&ccedil;o no footer</strong><br>
+            <span>Cada link de servi&ccedil;o no footer &rarr; <code>/services#service-1</code>, etc.</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <footer class="report-footer">
+    A7X Systems &mdash; Blueprint Interno &bull; Gerado em 24/02/2026 &bull; Documento confidencial
+  </footer>
+
+</body>
+</html>
