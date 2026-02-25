@@ -9,6 +9,7 @@ import { VHUpsells } from '@/components/sections/vacation-homes/VHUpsells'
 import { VHResults } from '@/components/sections/vacation-homes/VHResults'
 import { VHFAQ } from '@/components/sections/vacation-homes/VHFAQ'
 import { VHFinalCTA } from '@/components/sections/vacation-homes/VHFinalCTA'
+import { VHPopup } from '@/components/sections/vacation-homes/VHPopup'
 import { FAQJsonLd } from '@/components/seo/JsonLd'
 
 export default async function VacationHomesPage({
@@ -37,6 +38,7 @@ export default async function VacationHomesPage({
       <VHResults />
       <VHFAQ />
       <VHFinalCTA />
+      <VHPopup />
     </>
   )
 }

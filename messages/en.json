@@ -462,18 +462,26 @@
   "vhHero": {
     "badge": "Vacation Home Marketing",
     "location": "Florida Focus",
-    "headline1": "Stop Renting Your Business",
-    "headline2": "to Airbnb.",
-    "headline3": "Build Your Own Booking Engine.",
-    "subtitle": "Your AI-powered marketing department for vacation rentals. We build the digital infrastructure that drives direct bookings, improves occupancy, and turns your property into an independent brand.",
-    "cta1": "Get a Free Property Growth Audit",
+    "headline1": "Empty Nights Cost You",
+    "headline2": "$47K/Year.",
+    "headline3": "We Turn Properties Into",
+    "headline4": "Booking Machines.",
+    "subtitle": "While Airbnb takes 20% of every booking, your property has no brand, no direct funnel, and no repeat guests. We build the AI-powered infrastructure that fills your calendar year-round — on your terms.",
+    "cta1": "Get My Free Property Growth Audit",
     "cta2": "See How It Works",
+    "scarcity": "Only 5 audit spots left for February — Free personalized Loom video",
+    "pain1": "15-20% of every booking goes to platform fees",
+    "pain2": "Your property has 0 repeat guests from last year",
+    "pain3": "One algorithm change = 40% revenue drop overnight",
+    "pain4": "Off-season calendar: 60%+ empty nights costing you $200+/each",
+    "roomLabel": "Orlando Futuristic Suite — Themed Room Design",
+    "instaBadge": "Instagrammable",
     "stat1Value": "40%",
     "stat1Label": "Direct Bookings in 12 Months",
     "stat2Value": "$0",
     "stat2Label": "Platform Fees on Direct Bookings",
     "stat3Value": "72%",
-    "stat3Label": "Average Off-Season Occupancy"
+    "stat3Label": "Off-Season Occupancy Rate"
   },
 
   "vhPain": {
@@ -730,5 +738,22 @@
     "step4": "Start Growing",
     "cta": "Get a Free Property Growth Audit",
     "note": "Free personalized Loom video audit. No commitment required. Florida properties prioritized."
+  },
+  "vhPopup": {
+    "badge": "Limited Time Offer",
+    "title": "10 Futuristic Ad Creatives — Free for February Clients",
+    "subtitle": "Book your Property Growth Audit this month and get our Creative Boost Package: 10 scroll-stopping, cinematic ad creatives designed for your vacation rental.",
+    "days": "Days",
+    "hours": "Hours",
+    "mins": "Mins",
+    "secs": "Secs",
+    "item1": "10 cinematic ad creatives tailored to your property",
+    "item2": "Designed for Instagram, Facebook & Google Ads",
+    "item3": "Professional LED-lit futuristic room aesthetic",
+    "couponLabel": "Your coupon code",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "cta": "Claim My Creative Boost Package",
+    "ctaNote": "Mention coupon at checkout. Valid through February 2026."
   }
 }
