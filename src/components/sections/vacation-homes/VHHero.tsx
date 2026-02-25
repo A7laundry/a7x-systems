@@ -57,7 +57,7 @@ export function VHHero() {
   return (
     <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden">
       {/* Background layers */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-purple-950/20 via-background to-background" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-amber-950/20 via-background to-background" />
 
       <GradientOrb
         className="left-1/4 top-1/4 -translate-x-1/2 -translate-y-1/2"
@@ -205,14 +205,14 @@ export function VHHero() {
             className="relative order-first lg:order-last"
           >
             {/* Glow backdrop behind image */}
-            <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-violet-600/15 via-purple-500/10 to-cyan-500/10 blur-3xl" />
+            <div className="absolute -inset-8 rounded-3xl bg-gradient-to-br from-amber-600/15 via-orange-500/10 to-cyan-500/10 blur-3xl" />
 
-            <div className="relative overflow-hidden rounded-2xl border border-violet-500/20 shadow-2xl shadow-violet-500/10">
+            <div className="relative overflow-hidden rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10">
               {/* The hero image */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src="/images/vh-neon-room.jpg"
-                  alt="Luxury neon-themed vacation rental bedroom with purple LED ambient lighting"
+                  src="/images/vh-mansion-dusk.jpg"
+                  alt="Ultra-modern luxury vacation mansion at dusk with illuminated windows"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
@@ -221,15 +221,15 @@ export function VHHero() {
                 {/* Gradient overlay for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
 
-                {/* Animated neon glow border effect */}
+                {/* Animated warm glow border effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-violet-500/0"
+                  className="absolute inset-0 rounded-2xl border-2 border-amber-500/0"
                   animate={{
                     borderColor: [
-                      'rgba(139, 92, 246, 0)',
-                      'rgba(139, 92, 246, 0.3)',
-                      'rgba(168, 85, 247, 0.2)',
-                      'rgba(139, 92, 246, 0)',
+                      'rgba(245, 158, 11, 0)',
+                      'rgba(245, 158, 11, 0.3)',
+                      'rgba(249, 115, 22, 0.2)',
+                      'rgba(245, 158, 11, 0)',
                     ],
                   }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -239,12 +239,12 @@ export function VHHero() {
               {/* Room label overlay */}
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between sm:bottom-4 sm:left-4 sm:right-4">
                 <div className="rounded-full bg-black/70 px-3 py-1.5 backdrop-blur-md">
-                  <span className="text-[10px] font-medium text-violet-300 sm:text-xs">
+                  <span className="text-[10px] font-medium text-amber-300 sm:text-xs">
                     {t('roomLabel')}
                   </span>
                 </div>
                 <div className="flex gap-1.5">
-                  {['#a78bfa', '#22d3ee', '#f59e0b'].map((color, i) => (
+                  {['#f59e0b', '#fb923c', '#22d3ee'].map((color, i) => (
                     <motion.div
                       key={i}
                       className="h-2 w-2 rounded-full"
@@ -262,15 +262,15 @@ export function VHHero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 1.5 }}
-              className="absolute -right-2 -top-2 rotate-6 rounded-xl border border-pink-500/20 bg-pink-500/10 px-3 py-1.5 backdrop-blur-md sm:-right-3 sm:-top-3"
+              className="absolute -right-2 -top-2 rotate-6 rounded-xl border border-amber-500/20 bg-amber-500/10 px-3 py-1.5 backdrop-blur-md sm:-right-3 sm:-top-3"
             >
-              <span className="text-xs font-medium text-pink-400">{t('instaBadge')}</span>
+              <span className="text-xs font-medium text-amber-400">{t('instaBadge')}</span>
             </motion.div>
 
             {/* Photo credit */}
             <div className="mt-2 text-right">
               <span className="text-[9px] text-text-muted/40">
-                Photo by Joshua Rawson-Harris / Unsplash
+                Photo by Michael Brown / Unsplash
               </span>
             </div>
           </motion.div>

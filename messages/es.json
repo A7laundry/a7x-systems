@@ -486,7 +486,7 @@
     "pain2": "Tu propiedad tiene 0 huéspedes recurrentes del año pasado",
     "pain3": "Un cambio de algoritmo = 40% de caída de ingresos de la noche a la mañana",
     "pain4": "Calendario de temporada baja: 60%+ noches vacías que te cuestan $200+/cada una",
-    "roomLabel": "Suite Futurista en Orlando — Diseño de Habitación Temática",
+    "roomLabel": "Mansión de Lujo Moderna — Alquiler Vacacional",
     "instaBadge": "Instagrameable",
     "stat1Value": "40%",
     "stat1Label": "Reservas Directas en 12 Meses",
@@ -769,6 +769,27 @@
     "note": "Video Loom personalizado y gratuito. Sin compromiso. Propiedades en Florida tienen prioridad."
   },
 
+  "aiMarketingModal": {
+    "title": "Departamento de Marketing con IA",
+    "subtitle": "Un equipo de marketing completo potenciado por IA para tu nicho de negocio.",
+    "sol1Title": "Landing Pages Verticales",
+    "sol1Desc": "Páginas optimizadas para conversión, diseñadas específicamente para tu industria y público objetivo.",
+    "sol2Title": "Contenido y Copywriting con IA",
+    "sol2Desc": "Posts de blog, copy para anuncios, correos y contenido social generados y refinados con IA.",
+    "sol3Title": "Producción de Video con IA",
+    "sol3Desc": "Videos promocionales animados creados con herramientas de IA — creativos irresistibles a escala.",
+    "sol4Title": "Estrategia Full-Funnel",
+    "sol4Desc": "SEO, tráfico pagado, redes sociales y retargeting — orquestados en un motor de crecimiento cohesivo.",
+    "sol5Title": "Optimización Data-Driven",
+    "sol5Desc": "Reportes mensuales con insights accionables. Cada decisión respaldada por datos reales de rendimiento.",
+    "sol6Title": "Gestión de Redes Sociales",
+    "sol6Desc": "Calendario de contenido, cronograma de publicaciones y engagement con la comunidad — todo gestionado para ti.",
+    "expertiseTitle": "Expertise de Nicho",
+    "vhTitle": "Casas Vacacionales",
+    "vhDesc": "Infraestructura de marketing potenciada por IA para propietarios de alquileres vacacionales. Reservas directas, SEO local y construcción de base de huéspedes.",
+    "vhLink": "Ver en vivo",
+    "cta": "Habla con Nosotros"
+  },
   "vhPopup": {
     "badge": "Oferta por Tiempo Limitado",
     "title": "10 Creativos Publicitarios Futuristas — Gratis para Clientes de Febrero",

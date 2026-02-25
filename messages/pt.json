@@ -486,7 +486,7 @@
     "pain2": "Seu imóvel teve 0 hóspedes recorrentes no último ano",
     "pain3": "Uma mudança no algoritmo = 40% de queda na receita da noite pro dia",
     "pain4": "Calendário na baixa temporada: 60%+ de noites vazias custando $200+ cada",
-    "roomLabel": "Suíte Futurista em Orlando — Design de Quarto Temático",
+    "roomLabel": "Mansão de Luxo Moderna — Aluguel de Temporada",
     "instaBadge": "Instagramável",
     "stat1Value": "40%",
     "stat1Label": "Reservas Diretas em 12 Meses",
@@ -769,6 +769,27 @@
     "note": "Auditoria personalizada em vídeo no Loom. Sem compromisso. Imóveis na Flórida priorizados."
   },
 
+  "aiMarketingModal": {
+    "title": "Departamento de Marketing com IA",
+    "subtitle": "Uma equipe de marketing completa potencializada por IA para o seu nicho de negócio.",
+    "sol1Title": "Landing Pages Verticais",
+    "sol1Desc": "Páginas otimizadas para conversão, projetadas especificamente para seu setor e público-alvo.",
+    "sol2Title": "Conteúdo e Copywriting com IA",
+    "sol2Desc": "Posts de blog, copy para anúncios, e-mails e conteúdo social gerados e refinados com IA.",
+    "sol3Title": "Produção de Vídeo com IA",
+    "sol3Desc": "Vídeos promocionais animados criados com ferramentas de IA — criativos irresistíveis em escala.",
+    "sol4Title": "Estratégia Full-Funnel",
+    "sol4Desc": "SEO, tráfego pago, redes sociais e retargeting — orquestrados em um motor de crescimento coeso.",
+    "sol5Title": "Otimização Data-Driven",
+    "sol5Desc": "Relatórios mensais com insights acionáveis. Cada decisão respaldada por dados reais de performance.",
+    "sol6Title": "Gestão de Redes Sociais",
+    "sol6Desc": "Calendário de conteúdo, cronograma de postagens e engajamento com a comunidade — tudo gerenciado para você.",
+    "expertiseTitle": "Expertise de Nicho",
+    "vhTitle": "Casas de Temporada",
+    "vhDesc": "Infraestrutura de marketing potencializada por IA para proprietários de imóveis de temporada. Reservas diretas, SEO local e construção de base de hóspedes.",
+    "vhLink": "Veja ao vivo",
+    "cta": "Fale Conosco"
+  },
   "vhPopup": {
     "badge": "Oferta Por Tempo Limitado",
     "title": "10 Criativos Futuristas para Anúncios — Grátis para Clientes de Fevereiro",

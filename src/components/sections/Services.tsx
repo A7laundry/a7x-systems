@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { SectionHeader } from '@/components/ui/SectionHeader'
@@ -16,6 +17,7 @@ import {
   DataIntegrationIllustration,
   AIMarketingIllustration,
 } from '@/components/ui/ServiceIllustrations'
+import { AIMarketingModal } from '@/components/ui/AIMarketingModal'
 
 const serviceIllustrations: Record<string, React.ReactNode> = {
   search: <ProcessDiscoveryIllustration />,
@@ -28,6 +30,7 @@ const serviceIllustrations: Record<string, React.ReactNode> = {
 
 export function Services() {
   const t = useTranslations('services')
+  const [modalOpen, setModalOpen] = useState(false)
 
   const services = [
     { title: t('service1Title'), description: t('service1Description'), icon: t('service1Icon') },
@@ -54,7 +57,11 @@ export function Services() {
         <StaggerChildren className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {services.map((service, i) => (
             <StaggerItem key={i}>
-              <Card hover className="group h-full">
+              <Card
+                hover
+                className={`group h-full${service.icon === 'megaphone' ? ' cursor-pointer' : ''}`}
+                onClick={service.icon === 'megaphone' ? () => setModalOpen(true) : undefined}
+              >
                 {/* Illustration */}
                 <div className="mb-4 h-28 w-full overflow-hidden rounded-lg bg-surface-2/50 p-2 transition-all duration-300 group-hover:bg-accent-500/5">
                   {serviceIllustrations[service.icon]}
@@ -76,6 +83,8 @@ export function Services() {
           </Link>
         </FadeIn>
       </div>
+
+      <AIMarketingModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   )
 }
